@@ -1,11 +1,12 @@
 const { createTheme } = require("@mui/material");
-const { orange , grey, blueGrey, common} = require("@mui/material/colors");
+const { orange , grey, blueGrey, common, white} = require("@mui/material/colors");
 
 export const theme = createTheme({
     palette:{
         primary:{
             main:grey[900],
             sub: blueGrey[300],
+            light: '#0066ff',
         },
         white:{
             main:common.white
@@ -18,9 +19,14 @@ export const theme = createTheme({
         MuiInputBase:{
         styleOverrides:{
             root:{
-            color: common.white
+            color: common
             }
         }
     }
-    }
+    },
+    CssTextField: {
+        body1: {
+          color: 'red'
+        },
+      }
   });
