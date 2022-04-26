@@ -38,8 +38,9 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function BasicTabs({todos}) {
   const [value, setValue] = React.useState(0);
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -47,7 +48,7 @@ export default function BasicTabs() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box className='text-white' sx={{ borderBottom: 1, borderColor: 'divider'}}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="ALL" {...a11yProps(0)} />
           <Tab label="TODAY" {...a11yProps(1)} />
@@ -55,7 +56,14 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        ALL
+      <Box className='ml-8 mt-8 text-white' style={{background: "#212121"}}>
+        <ul>
+              {todos.map((t , index) =>
+              <li key={index} className='mt-4 text-centera'>
+              {t}</li>
+              )}
+        </ul>
+      </Box>
       </TabPanel>
       <TabPanel value={value} index={1}>
         TODAY
